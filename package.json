@@ -1,0 +1,21 @@
+{
+  "name": "lottery",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Company annual lottery — phase 1",
+  "scripts": {
+    "dev": "concurrently -n server,admin -c blue,green \"npm run dev -w server\" \"npm run dev -w admin\"",
+    "build": "npm run build -w admin && npm run build -w server",
+    "start": "npm run start -w server",
+    "audit:verify": "npm run audit:verify -w server",
+    "stress:test": "npm run stress:test -w server",
+    "reset:test": "npm run reset:test -w server"
+  },
+  "workspaces": [
+    "server",
+    "admin"
+  ],
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
